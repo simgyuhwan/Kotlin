@@ -6,7 +6,6 @@ import com.group.libraryapp.dto.user.request.UserCreateRequest
 import com.group.libraryapp.dto.user.request.UserUpdateRequest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -48,7 +47,7 @@ class UserServiceTest @Autowired constructor(
         ))
 
         // when
-        val results = userService.getUsers()
+        val results = userService.users
 
         // then
         assertThat(results).hasSize(2)
@@ -61,7 +60,7 @@ class UserServiceTest @Autowired constructor(
     fun updateUserNameTest(){
         // given
         val savedUser = userRepository.save(User("A", null))
-        val request = UserUpdateRequest(savedUser.id, "B")
+        val request = UserUpdateRequest(savedUser.id!!, "B")
 
         // when
         userService.updateUserName(request)

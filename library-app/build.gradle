@@ -22,7 +22,7 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     // Kotlin refactoring
-    implementation('org.jetbrains.kotlin:kotlin-reflect:1.7.22')
+    implementation('org.jetbrains.kotlin:kotlin-reflect:1.6.21')
 }
 
 tasks.named('test') {
@@ -39,4 +39,3 @@ compileTestKotlin {
         jvmTarget = "11"
     }
 }
-
