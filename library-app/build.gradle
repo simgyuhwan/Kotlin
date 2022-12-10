@@ -5,6 +5,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.21'
     // Kotlin refactoring
     id 'org.jetbrains.kotlin.plugin.jpa' version('1.6.21')
+    // bean 클래스를 자동으로 열어준다. 일일이 open을 붙여서 override 하지 않도록 해준다.
+    id 'org.jetbrains.kotlin.plugin.spring' version('1.6.21')
     id "org.jetbrains.kotlin.plugin.allopen" version "1.6.21"
 }
 
