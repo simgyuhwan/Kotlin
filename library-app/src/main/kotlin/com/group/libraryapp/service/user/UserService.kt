@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional
 class UserService(
     private val userRepository: UserRepository
 ) {
-
     @Transactional
     fun saveUser(request: UserCreateRequest) {
         val newUser = User(request.name, request.age)
