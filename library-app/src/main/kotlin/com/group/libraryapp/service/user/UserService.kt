@@ -23,7 +23,6 @@ class UserService(
         return userRepository.findAll()
             .map {user -> UserResponse(user) }
     }
-
     @Transactional
     fun updateUserName(request: UserUpdateRequest){
         val user = userRepository.findById(request.id)
