@@ -34,5 +34,4 @@ class UserService(
         val user = userRepository.findByName(name).orElseThrow(::IllegalArgumentException)
         userRepository.delete(user)
     }
-
 }
