@@ -8,4 +8,6 @@ interface BookRepository : JpaRepository<Book, Long> {
     fun findByName(bookName: String) : Optional<Book>
 
     fun findBookById(bookId: Long) : Optional<Book>
+
+    fun
 }
