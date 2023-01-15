@@ -9,5 +9,5 @@ interface BookRepository : JpaRepository<Book, Long> {
 
     fun findBookById(bookId: Long) : Optional<Book>
 
-    fun
+    fun findBookByName(name: String) : Optional<Book>
 }
