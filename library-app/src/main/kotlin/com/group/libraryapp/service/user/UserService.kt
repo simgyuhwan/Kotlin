@@ -18,8 +18,6 @@ class UserService(
     }
     @Transactional(readOnly = true)
     fun getUsers() : List<UserResponse> {
-//        return userRepository.findAll()
-//            .map { UserResponse(it)}
         return userRepository.findAll()
             .map {user -> UserResponse(user) }
     }
