@@ -11,7 +11,6 @@ enum class Color(val r:Int, val g: Int, val b: Int) {
     VIOLET(238, 130, 238);
 
     fun rgb() = (r * 256 + g) * 256 + b
-
     // when 을 식으로 사용
     fun getMnemonic(color: Color) =
             when(color){
