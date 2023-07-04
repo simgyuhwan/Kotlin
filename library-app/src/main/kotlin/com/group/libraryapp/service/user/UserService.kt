@@ -19,20 +19,25 @@ class UserService(
         val newUser = User(request.name, request.age)
         userRepository.save(newUser)
     }
+
     @Transactional(readOnly = true)
-    fun getUsers() : List<UserResponse> {
+    fun getUsers(): List<UserResponse> {
         return userRepository.findAll()
-            .map {user -> UserResponse.of(user) }
+            .map { user -> UserResponse.of(user) }
     }
+
     @Transactional
-    fun updateUserName(request: UserUpdateRequest){
+    fun updateUserName(request: UserUpdateRequest) {
         val user = userRepository.findByIdOrThrow(request.id)
         user.updateName(request.name)
     }
+
     @Transactional
-    fun deleteUser(name: String){
+    fun deleteUser(name: String) {
         val user = userRepository.findByName(name)
-        userRepository.delete(user)
+        if (user != null) {
+            userRepository.delete(user)
+        }
     }
 
     @Transactional(readOnly = true)

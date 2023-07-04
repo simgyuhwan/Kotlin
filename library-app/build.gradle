@@ -10,6 +10,9 @@ plugins {
     // bean 클래스를 자동으로 열어준다. 일일이 open을 붙여서 override 하지 않도록 해준다.
     id 'org.jetbrains.kotlin.plugin.spring' version('1.6.21')
     id "org.jetbrains.kotlin.plugin.allopen" version "1.6.21"
+
+    // querydsl
+    id 'org.jetbrains.kotlin.kapt' version '1.6.21'
 }
 
 group = 'com.group'
@@ -26,11 +29,16 @@ dependencies {
     implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8')
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     // Kotlin refactoring
     implementation('org.jetbrains.kotlin:kotlin-reflect:1.6.21')
 
     // Kotlin 용 Jackson
     implementation('com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2')
+
+    implementation 'com.querydsl:querydsl-jpa:5.0.0'
+    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
+    kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
 tasks.named('test') {
